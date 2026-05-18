@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f8f0e0",
+              "on-primary-container": "#491300",
+              "secondary-fixed": "#ffc5a6",
+              background: "#fef6e7",
+              "on-error-container": "#570008",
+              "on-primary-fixed-variant": "#591800",
+              "surface-tint": "#a03a0f",
+              "on-secondary-fixed": "#592500",
+              "on-tertiary-fixed-variant": "#00703f",
+              "on-tertiary-fixed": "#00502b",
+              "primary-fixed-dim": "#ed7244",
+              "on-primary-fixed": "#020000",
+              secondary: "#964400",
+              "inverse-on-surface": "#a29c8f",
+              "secondary-container": "#ffc5a6",
+              "on-tertiary": "#ccffd8",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-container": "#773400",
+              "on-background": "#322e25",
+              "tertiary-dim": "#005c33",
+              "surface-dim": "#dcd4c0",
+              "outline-variant": "#b3ac9f",
+              "error-dim": "#9f0519",
+              "surface-container": "#f0e7d6",
+              "primary-dim": "#902e02",
+              "on-error": "#ffefee",
+              "on-surface-variant": "#605b50",
+              primary: "#a03a0f",
+              "inverse-primary": "#fe7e4f",
+              "on-tertiary-container": "#006438",
+              "tertiary-fixed-dim": "#94f0b3",
+              "secondary-dim": "#833a00",
+              "on-secondary-fixed-variant": "#853b00",
+              error: "#b31b25",
+              "primary-fixed": "#fe7e4f",
+              outline: "#7c766a",
+              "surface-container-high": "#eae2d0",
+              "primary-container": "#fe7e4f",
+              "on-surface": "#322e25",
+              "surface-bright": "#fef6e7",
+              "surface-variant": "#e5dcc9",
+              "tertiary-container": "#a2ffc0",
+              "inverse-surface": "#110e06",
+              "secondary-fixed-dim": "#ffb286",
+              "error-container": "#fb5151",
+              "on-primary": "#ffefeb",
+              tertiary: "#006a3b",
+              surface: "#fef6e7",
+              "tertiary-fixed": "#a2ffc0",
+              "on-secondary": "#fff0e9",
+              "surface-container-highest": "#e5dcc9",
+            },
+            borderRadius: {
+              DEFAULT: "1rem",
+              lg: "2rem",
+              xl: "3rem",
+              full: "9999px",
+            },
+            fontFamily: {
+              headline: ["Plus Jakarta Sans"],
+              body: ["Be Vietnam Pro"],
+              label: ["Plus Jakarta Sans"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+      .tonal-transition {
+        transition: background-color 0.3s ease;
+      }
+
+      /* Mobile menu */
+      #mobile-menu {
+        display: none;
+      }
+      #mobile-menu.open {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container"
+  >
+    <!-- TopAppBar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-[#fef6e7]/80 dark:bg-stone-950/80 backdrop-blur-md shadow-[0_20px_40px_rgba(50,46,37,0.06)]"
+    >
+      <nav
+        class="flex justify-between items-center px-4 sm:px-8 py-4 max-w-7xl mx-auto"
+      >
+        <div class="flex items-center gap-2 sm:gap-3 group cursor-pointer">
+          <!-- <span
+            class="material-symbols-outlined text-[#a03a0f] text-2xl sm:text-3xl"
+            >heart_plus</span
+          >
+          <span
+            class="text-base sm:text-2xl font-bold tracking-tighter text-[#a03a0f] dark:text-[#fe7e4f] font-headline leading-tight"
+            >Beautiful Life Foundation</span
+          > -->
+          <img class="w-40" src="public/bllogo2.png" alt="logo" srcset="" />
+        </div>
+        <!-- Desktop nav -->
+        <div class="hidden md:flex items-center gap-10 font-headline">
+          <a
+            class="text-[#a03a0f] dark:text-[#fe7e4f] font-bold border-b-2 border-[#a03a0f] hover:text-[#fe7e4f] transition-colors duration-300"
+            href="#"
+            >Home</a
+          >
+          <a
+            class="text-[#322e25] dark:text-[#fef6e7] opacity-80 hover:text-[#fe7e4f] transition-colors duration-300"
+            href="about.html"
+            >About Us</a
+          >
+          <a
+            class="text-[#322e25] dark:text-[#fef6e7] opacity-80 hover:text-[#fe7e4f] transition-colors duration-300"
+            href="programs.html"
+            >Our Programs</a
+          >
+          <a
+            class="text-[#322e25] dark:text-[#fef6e7] opacity-80 hover:text-[#fe7e4f] transition-colors duration-300"
+            href="get-involved.html"
+            >Get Involved</a
+          >
+          <button
+            class="bg-primary-container text-on-primary-container px-8 py-2.5 rounded-full font-bold scale-95 active:scale-90 transition-transform hover:bg-primary-fixed-dim"
+          >
+            <a href="contact.html">Contact Us</a>
+          </button>
+        </div>
+        <!-- Hamburger -->
+        <button
+          id="menu-btn"
+          class="md:hidden p-2 rounded-lg hover:bg-primary-container/20 transition-colors"
+          aria-label="Toggle menu"
+        >
+          <span
+            class="material-symbols-outlined text-primary text-2xl"
+            id="menu-icon"
+            >menu</span
+          >
+        </button>
+      </nav>
+
+      <!-- Mobile menu -->
+      <div
+        id="mobile-menu"
+        class="md:hidden flex-col gap-1 px-4 pb-4 bg-[#fef6e7]/95 backdrop-blur-md font-headline border-t border-primary/10"
+      >
+        <a
+          href="#"
+          class="block px-4 py-3 text-[#a03a0f] font-bold rounded-lg bg-primary-container/20"
+          >Home</a
+        >
+        <a
+          href="about.html"
+          class="block px-4 py-3 text-on-surface opacity-80 hover:bg-primary-container/10 rounded-lg transition-colors"
+          >About Us</a
+        >
+        <a
+          href="programs.html"
+          class="block px-4 py-3 text-on-surface opacity-80 hover:bg-primary-container/10 rounded-lg transition-colors"
+          >Our Programs</a
+        >
+        <a
+          href="get-involved.html"
+          class="block px-4 py-3 text-on-surface opacity-80 hover:bg-primary-container/10 rounded-lg transition-colors"
+          >Get Involved</a
+        >
+        <a
+          href="contact.html"
+          class="block mt-2 px-4 py-3 text-center bg-primary-container text-on-primary-container font-bold rounded-full hover:bg-primary-fixed-dim transition-colors"
+          >Contact Us</a
+        >
+      </div>
+    </header>
+
+    <main class="pt-20 sm:pt-24 overflow-x-hidden">
+      <!-- Hero Section -->
+      <section
+        class="relative min-h-screen sm:min-h-[921px] flex items-center px-4 sm:px-8 max-w-7xl mx-auto py-12 sm:py-20"
+      >
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-16 items-center w-full"
+        >
+          <div class="z-10 text-center lg:text-left">
+            <span
+              class="text-primary font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 sm:mb-4 block"
+              >Ghanian Roots, Global Hope</span
+            >
+            <h1
+              class="font-headline text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-on-surface leading-[1.1] mb-6 sm:mb-8"
+            >
+              Nurturing
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-primary-fixed"
+                >Every Life</span
+              >
+              To Its Fullest Potential.
+            </h1>
+            <p
+              class="text-base sm:text-xl text-on-surface-variant leading-relaxed mb-8 sm:mb-10 max-w-xl mx-auto lg:mx-0"
+            >
+              A Beautiful Life Foundation Ghana provides specialized healthcare,
+              nutrition, and psychological support for children with special
+              needs and their families.
+            </p>
+            <div
+              class="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 justify-center lg:justify-start"
+            >
+              <a
+                class="bg-primary-container text-on-primary-container px-8 sm:px-10 py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-primary-fixed-dim transition-all shadow-lg"
+                href="about.html#mission"
+                class="bg-primary-container text-on-primary-container px-8 sm:px-10 py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-primary-fixed-dim transition-all shadow-lg inline-block"
+              >
+                Our Mission
+                <!-- </a> -->
+              </a>
+
+              <!-- <button
+                class="group flex items-center justify-center gap-3 text-primary font-bold text-base sm:text-lg hover:gap-5 transition-all"
+              >
+                Hear Their Stories
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </button> -->
+            </div>
+          </div>
+          <div class="relative mt-8 lg:mt-0">
+            <div
+              class="relative z-10 rounded-xl overflow-hidden shadow-2xl transform sm:rotate-2 hover:rotate-0 transition-transform duration-500"
+              style="background-color: #fe7e4f"
+            >
+              <img
+                alt="Ghanian Mother and Child"
+                class="w-full h-72 sm:h-[400px] lg:h-[600px] object-cover"
+                src="public/27.jpg"
+              />
+              <!-- src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcTKYL3aKPXbPXr87OmpYHEMVlyOzIns5cj3X_nPIAWHCxqbP133pFD2Oq9bE2lYBDGaFUvsSLt4WfXA4qVo_wpipiuZVohfRwWyg6Sbh5MjPXC_YgwHHBajYoDVvlBSBhuu5UAOzI5L5Y6wk8lY4SDEhbfI-9i-4BBFqmC6vSAJ95idX1hTIkkg66o-A_cxwDzGjQcU9LzEcmtqqqZ_w1arvRhQf3Ga-pciP602blvmjdTMy3c6gjUUXebH9qbM-ppIW5L7aVrfk" -->
+            </div>
+            <div
+              class="absolute -bottom-10 -left-10 w-48 sm:w-64 h-48 sm:h-64 bg-tertiary-container/30 rounded-full blur-3xl -z-10"
+            ></div>
+            <div
+              class="absolute -top-10 -right-10 w-56 sm:w-80 h-56 sm:h-80 bg-primary-container/20 rounded-full blur-3xl -z-10"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Problem Statement -->
+      <section class="bg-surface-container py-16 sm:py-32 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto">
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-20 items-center"
+          >
+            <div class="order-2 md:order-1">
+              <div
+                class="bg-surface-container-lowest p-3 sm:p-4 rounded-lg shadow-sm"
+              >
+                <img
+                  alt="Caregiver in Ghana"
+                  class="rounded-lg w-full aspect-square object-cover"
+                  src="public/31.JPG"
+                />
+                <!-- src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0puCqr_ZpQp0vBThqJQpkYSrx8HXCt7CqFo6cPIbMp2pR8o4YC5WQVRKL9Uv3B0A3yr51q3MwQPfswj1_V6TMGaqbiuOhASm8AnTgvXOWuOyzaOn88rWidufpu2sRpqCbUqweNU4IFd-TQ-H_V4DigCZFcyrNUQdNDRxrU0wbsZwmGU6hI0ccZ2Vc4UZFN2UGw7zC9lCUzWEt8VlUhk-k6eX47YsKZBenemuRDDXqQ7Xrf9xFJMDi_2T2K-1Npv1qwUSd3QARfpo" -->
+              </div>
+            </div>
+            <div class="order-1 md:order-2">
+              <h2
+                class="font-headline text-3xl sm:text-4xl md:text-5xl font-bold text-on-surface mb-6 sm:mb-8 leading-tight"
+              >
+                The Challenge of
+                <span class="text-secondary">Invisible Struggles</span>.
+              </h2>
+              <div
+                class="space-y-4 sm:space-y-6 text-base sm:text-lg text-on-surface-variant"
+              >
+                <p>
+                  For many families in Ghana caring for children with
+                  specialized needs, the journey is often traveled in isolation.
+                  Barriers to healthcare, nutritional gaps, and social stigma
+                  create a cycle of hardship.
+                </p>
+                <p>
+                  Without adequate support, these children remain hidden from
+                  the opportunities they deserve, and their families bear an
+                  overwhelming emotional and financial burden.
+                </p>
+              </div>
+              <div
+                class="mt-8 sm:mt-12 flex items-start sm:items-center gap-4 p-4 sm:p-6 bg-surface-container-low rounded-lg border-l-4 border-primary"
+              >
+                <span
+                  class="material-symbols-outlined text-primary text-3xl sm:text-4xl flex-shrink-0"
+                  >info</span
+                >
+                <p
+                  class="font-medium text-on-surface italic text-sm sm:text-base"
+                >
+                  "Our goal is to ensure no family feels they must choose
+                  between survival and care."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- What We Do: Bento Grid Style -->
+      <section class="py-16 sm:py-32 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-12 sm:mb-20">
+          <h2
+            class="font-headline text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6"
+          >
+            Our Care Ecosystem
+          </h2>
+          <p
+            class="text-base sm:text-xl text-on-surface-variant max-w-2xl mx-auto"
+          >
+            We provide a holistic approach that centers the child's dignity and
+            the family's resilience.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <!-- Specialized Healthcare -->
+          <div
+            class="md:col-span-2 bg-surface-container-lowest p-6 sm:p-10 rounded-xl hover:shadow-xl transition-shadow group"
+          >
+            <div class="flex flex-col gap-6 sm:gap-8">
+              <div class="flex-1">
+                <div
+                  class="w-12 h-12 sm:w-14 sm:h-14 bg-tertiary-container rounded-full flex items-center justify-center mb-4 sm:mb-6"
+                >
+                  <span
+                    class="material-symbols-outlined text-on-tertiary-container text-2xl sm:text-3xl"
+                    >medical_services</span
+                  >
+                </div>
+                <h3
+                  class="font-headline text-xl sm:text-2xl font-bold mb-3 sm:mb-4"
+                >
+                  Specialized Healthcare
+                </h3>
+                <p
+                  class="text-on-surface-variant leading-relaxed text-sm sm:text-base"
+                >
+                  Direct access to pediatric specialists, physical therapy, and
+                  life-essential medications tailored for unique developmental
+                  needs.
+                </p>
+              </div>
+              <div class="flex-1 w-full overflow-hidden rounded-lg">
+                <img
+                  alt="Medical Clinic"
+                  class="w-full h-40 sm:h-48 object-cover group-hover:scale-110 transition-transform duration-700"
+                  src="public/34.jpg"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Nutritional Support -->
+          <div
+            class="bg-primary-container p-6 sm:p-10 rounded-xl text-on-primary-container"
+          >
+            <div
+              class="w-12 h-12 sm:w-14 sm:h-14 bg-on-primary-container/10 rounded-full flex items-center justify-center mb-4 sm:mb-6"
+            >
+              <span
+                class="material-symbols-outlined text-on-primary-container text-2xl sm:text-3xl"
+                >restaurant</span
+              >
+            </div>
+            <h3
+              class="font-headline text-xl sm:text-2xl font-bold mb-3 sm:mb-4"
+            >
+              Nutritional Fortification
+            </h3>
+            <p
+              class="opacity-90 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base"
+            >
+              Specialized food packages and dietary education to ensure every
+              child reaches their developmental milestones.
+            </p>
+            <img
+              alt="Healthy Food"
+              class="w-full h-28 sm:h-32 object-cover rounded-lg mix-blend-overlay opacity-60"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdRmayTV7zymcCebgeKBfiw7_Qu2I14X9-44_JN7ev5OgSEeL232zmHLKX_HL2FsqT2GCw-0dB0Juen-S4Wjmmt1VGddqrMM0uHrdI9zVqP5riQCHtpchB9LMR1gGyakC6AKRHaOWd_9B_S4JqU9rLpYVvaI07L9wnpNXtWzTrkFD7xtL0yp3EhQnEGhDOuGqhYG9CHBRCMtOufQuH3uCuDXqYyLb1DMLxHfwwOIlfJRVgkiOn5MEtWtntLf7k4CDMALbhFVom4yU"
+            />
+          </div>
+
+          <!-- Psychological Support -->
+          <div
+            class="bg-surface-container-low p-6 sm:p-10 rounded-xl flex flex-col justify-between"
+          >
+            <div>
+              <div
+                class="w-12 h-12 sm:w-14 sm:h-14 bg-secondary-container rounded-full flex items-center justify-center mb-4 sm:mb-6"
+              >
+                <span
+                  class="material-symbols-outlined text-on-secondary-container text-2xl sm:text-3xl"
+                  >psychology</span
+                >
+              </div>
+              <h3
+                class="font-headline text-xl sm:text-2xl font-bold mb-3 sm:mb-4"
+              >
+                Family Resilience
+              </h3>
+              <p
+                class="text-on-surface-variant leading-relaxed text-sm sm:text-base"
+              >
+                Counseling and peer support groups for caregivers to combat
+                isolation and build community strength.
+              </p>
+            </div>
+            <div class="mt-6 sm:mt-8 flex -space-x-4">
+              <div
+                class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-4 border-surface bg-gray-200 overflow-hidden"
+              >
+                <img
+                  alt="User"
+                  class="w-full h-full object-cover"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEH3H4g0aG8NScyZ4QtFBfCiiu0z8hyu_EiIkVeIKHB0D06yezAyU9pmsN5-Sf5CJyxyWzmVTYJkMbXSMcJNmO3ULrGhO86vmHPBfFUaknDQTPFo87vchj7Vy-sjnsU7fC0nHdqt3TkmQBM8J8oGTlLT991jH5lkrXzpQRkgaa9ckI4L97LiUthOxKH-EoYDaSQMbFT7_9_LZICu5HCN_1atIcGdWh_axcdw8aQCPWMgHPxokAuHP3sU2di6nOr7wbcBbbYuIy6mE"
+                />
+              </div>
+              <div
+                class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-4 border-surface bg-gray-200 overflow-hidden"
+              >
+                <img
+                  alt="User"
+                  class="w-full h-full object-cover"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuChNTRYOrPmflnsU1FNFS6c_-tC-5Idx3C2UpA7Tcr0QK5lac2drDRSlRVLnfs63tcYEqXnbwlp8s-jatDZl6Oot7bcJ1B78-wN_cIAUGyrZDss7aG-loI9ZEUCVCYqkxf-7KPw_QU0bmd9_T20ZbPzSUe3JBeT3it_WelLQY30tFqchUHw--yeK0NYtNhYHVbnNQSPyna64Onfe0H09greGJ72Gs0an7Ps0KOq_A9IK6VA46QUugU6N-ivrnPZkXGbi1bLKA1fnBM"
+                />
+              </div>
+              <div
+                class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-4 border-surface bg-primary-container flex items-center justify-center text-xs font-bold text-on-primary-container"
+              >
+                +120
+              </div>
+            </div>
+          </div>
+
+          <!-- Economic Empowerment -->
+          <div
+            class="md:col-span-2 bg-inverse-surface p-6 sm:p-10 rounded-xl text-surface"
+          >
+            <div class="flex flex-col md:flex-row gap-8 sm:gap-12">
+              <div class="flex-1">
+                <h3
+                  class="font-headline text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-primary-fixed"
+                >
+                  Sustainable Growth
+                </h3>
+                <p
+                  class="text-surface/70 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8"
+                >
+                  We empower mothers and caregivers with vocational skills and
+                  micro-grants, turning dependency into sustainable
+                  self-reliance.
+                </p>
+                <ul class="space-y-3 sm:space-y-4">
+                  <li class="flex items-center gap-3">
+                    <span
+                      class="material-symbols-outlined text-tertiary-fixed text-xl"
+                      >check_circle</span
+                    >
+                    <span class="text-sm sm:text-base"
+                      >Vocational Training Workshops</span
+                    >
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <span
+                      class="material-symbols-outlined text-tertiary-fixed text-xl"
+                      >check_circle</span
+                    >
+                    <span class="text-sm sm:text-base">Micro-Seed Grants</span>
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="flex-1 h-48 sm:h-64 md:h-auto rounded-lg overflow-hidden grayscale hover:grayscale-0 transition-all duration-700"
+              >
+                <img
+                  alt="Market in Ghana"
+                  class="w-full h-full object-cover"
+                  src="public/2.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Impact Stories -->
+      <section class="bg-surface-container-low py-16 sm:py-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+          <div class="mb-10 sm:mb-20">
+            <h2
+              class="font-headline text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4"
+            >
+              Stories of Radiance
+            </h2>
+            <p class="text-on-surface-variant text-base sm:text-xl">
+              The real impact of our community, one child at a time.
+            </p>
+          </div>
+          <div
+            class="relative flex flex-col lg:flex-row items-center gap-10 sm:gap-16"
+          >
+            <div class="w-full lg:w-1/2 relative">
+              <div
+                class="absolute -top-10 -left-10 text-[6rem] sm:text-[12rem] font-bold text-primary-container/10 select-none leading-none"
+              >
+                HOPE
+              </div>
+              <div
+                class="relative z-10 bg-surface-container-lowest p-6 sm:p-12 rounded-xl shadow-[0_20px_40px_rgba(50,46,37,0.06)]"
+              >
+                <span
+                  class="material-symbols-outlined text-primary text-4xl sm:text-5xl mb-4 sm:mb-8"
+                  >format_quote</span
+                >
+                <blockquote
+                  class="text-xl sm:text-3xl font-headline font-medium text-on-surface leading-tight mb-6 sm:mb-10"
+                >
+                  "Since the foundation started visiting us, Kofi can finally
+                  sit up on his own. I no longer feel I am walking this path
+                  alone."
+                </blockquote>
+                <div>
+                  <h4 class="text-lg sm:text-xl font-bold text-on-surface">
+                    Abena Sarfo
+                  </h4>
+                  <p class="text-on-surface-variant text-sm sm:text-base">
+                    Mother and Caregiver, Greater Accra
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="w-full lg:w-1/2">
+              <div class="relative">
+                <img
+                  alt="Smiling Child"
+                  class="rounded-lg shadow-2xl w-full h-64 sm:h-[500px] object-cover"
+                  src="public/28.jpg"
+                />
+                <div
+                  class="absolute -bottom-4 sm:-bottom-6 -right-0 sm:-right-6 bg-primary p-4 sm:p-8 rounded-xl text-white"
+                >
+                  <div class="text-2xl sm:text-4xl font-bold">1,200+</div>
+                  <div
+                    class="text-xs sm:text-sm uppercase tracking-widest opacity-80"
+                  >
+                    Families Supported
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Vision Section -->
+      <section class="py-16 sm:py-32 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center gap-12 sm:gap-20">
+          <div class="md:w-1/2 text-center md:text-left">
+            <h2
+              class="font-headline text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-8 sm:mb-10"
+            >
+              Our Vision for a
+              <span class="text-primary italic">Luminous Future</span>.
+            </h2>
+            <p
+              class="text-base sm:text-xl text-on-surface-variant leading-relaxed mb-6 sm:mb-8"
+            >
+              We envision a Ghana where disability does not mean invisibility.
+              Where every family is equipped with the resources to nurture their
+              children, and every community celebrates the unique radiance each
+              person brings.
+            </p>
+            <div class="grid grid-cols-2 gap-6 sm:gap-8 text-left">
+              <div class="border-l-2 border-primary-container pl-4 sm:pl-6">
+                <h5 class="font-bold text-primary mb-2">Inclusion</h5>
+                <p class="text-xs sm:text-sm text-on-surface-variant">
+                  Breaking social stigmas through education and presence.
+                </p>
+              </div>
+              <div class="border-l-2 border-primary-container pl-4 sm:pl-6">
+                <h5 class="font-bold text-primary mb-2">Excellence</h5>
+                <p class="text-xs sm:text-sm text-on-surface-variant">
+                  Providing the highest standard of compassionate care.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="md:w-1/2 grid grid-cols-2 gap-3 sm:gap-4 w-full">
+            <img
+              alt="Vision 1"
+              class="w-full h-40 sm:h-64 object-cover rounded-xl sm:mt-12"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrgWzExM3M6reDBLDrwqDfI30PHYRk-XSzq_CaffQzwbKg7BatrQoGoY5jW0UOJTzDqB3fOgqOV9wtF2Q9El9dmnmCj4JbkaANPG6W7dntxjeFthOnSbEpq7rv1g8IlQ8AIfUdjO7R_0lUMpZCX1bZUUSH7NJwq_P0O_pAJsMkvLLQn_qSEsoWwofRflXs31xuQTORt-u-WIMdRQHCNvSF23Nf0RKghuxKW1NSMcHW4_j7iJvo2LF3m8_vo_I8m5GxPI92OmB4s1I"
+            />
+            <img
+              alt="Vision 2"
+              class="w-full h-40 sm:h-64 object-cover rounded-xl"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfwkxFoHOOIIKZItii7Ozs7UGBnHCcbnt73_sHi3UuFdHoRb2xYIv34p_ELCzI3FZFv0ms0DDn0LAap4X-fDCGIkI3YURzK_Kt6KTjNkYoUJWXwQBGEw4g6B8E5HQMArytIpcjY9Qf_Mkb7eBfneo8MOLSf9W88VXipDb5pK8-vouAb7p5DBC9afv5_QyLXGIasNyxitxSLwpbt-6GZycx4-3cesX2CqZ5-dj5QFIiY7dYx_JVvcRD_3e7oxfipHR1W8T16h1o2pk"
+            />
+          </div> -->
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="px-4 sm:px-8 pb-16 sm:pb-32">
+        <div
+          class="max-w-7xl mx-auto bg-gradient-to-br from-primary to-secondary rounded-xl p-8 sm:p-16 text-center text-white relative overflow-hidden"
+        >
+          <div
+            class="absolute inset-0 opacity-10"
+            style="
+              background-image: radial-gradient(
+                circle at 2px 2px,
+                white 1px,
+                transparent 0
+              );
+              background-size: 40px 40px;
+            "
+          ></div>
+          <div class="relative z-10">
+            <h2
+              class="font-headline text-2xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8"
+            >
+              Be a Part of the Beautiful Life.
+            </h2>
+            <p
+              class="text-base sm:text-xl opacity-90 max-w-2xl mx-auto mb-8 sm:mb-12"
+            >
+              Whether through donation, volunteering, or partnership, your
+              contribution helps us expand our reach to more families in need.
+            </p>
+            <div
+              class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6"
+            >
+              <button
+                class="bg-white text-primary px-8 sm:px-12 py-4 sm:py-5 rounded-full font-bold text-base sm:text-xl hover:bg-opacity-90 transition-all shadow-xl"
+              >
+                <a href="about.html#mission"> Join Our Mission </a>
+              </button>
+              <!-- <button
+                class="bg-white/20 backdrop-blur-md text-white border-2 border-white/30 px-8 sm:px-12 py-4 sm:py-5 rounded-full font-bold text-base sm:text-xl hover:bg-white/30 transition-all"
+              >
+                Download 2023 Report
+              </button> -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="w-full rounded-t-[2rem] sm:rounded-t-[3rem] mt-10 sm:mt-20 bg-[#f0e7d6] dark:bg-stone-900 font-body leading-relaxed"
+    >
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 px-6 sm:px-12 py-10 sm:py-16 max-w-7xl mx-auto"
+      >
+        <div class="sm:col-span-2">
+          <div class="flex items-center gap-3 mb-4 sm:mb-6">
+            <span class="material-symbols-outlined text-[#a03a0f] text-3xl"
+              >heart_plus</span
+            >
+            <span
+              class="text-lg sm:text-xl font-bold text-[#a03a0f] font-headline"
+              >Beautiful Life Foundation</span
+            >
+          </div>
+          <p
+            class="text-[#322e25]/70 dark:text-[#fef6e7]/70 max-w-sm mb-6 sm:mb-8 text-sm sm:text-base"
+          >
+            Registered NGO in Ghana dedicated to supporting children with
+            special needs and their caregivers through holistic care and
+            economic empowerment.
+          </p>
+          <div class="flex gap-4">
+            <a
+              class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#a03a0f]/10 flex items-center justify-center text-[#a03a0f] hover:bg-[#a03a0f] hover:text-white transition-all"
+              href="#"
+            >
+              <span class="material-symbols-outlined text-xl"
+                >social_leaderboard</span
+              >
+            </a>
+            <a
+              class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#a03a0f]/10 flex items-center justify-center text-[#a03a0f] hover:bg-[#a03a0f] hover:text-white transition-all"
+              href="#"
+            >
+              <span class="material-symbols-outlined text-xl">share</span>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-[#a03a0f] font-bold mb-4 sm:mb-6 font-headline">
+            Quick Links
+          </h4>
+          <ul class="space-y-3 sm:space-y-4">
+            <li>
+              <a
+                class="text-[#322e25]/70 dark:text-[#fef6e7]/70 hover:underline decoration-[#fe7e4f] decoration-2 underline-offset-4 text-sm sm:text-base"
+                href="programs.html"
+                >Programs</a
+              >
+            </li>
+            <!-- <li><a class="text-[#322e25]/70 dark:text-[#fef6e7]/70 hover:underline decoration-[#fe7e4f] decoration-2 underline-offset-4 text-sm sm:text-base" href="#">Impact Stories</a></li> -->
+            <li>
+              <a
+                class="text-[#322e25]/70 dark:text-[#fef6e7]/70 hover:underline decoration-[#fe7e4f] decoration-2 underline-offset-4 text-sm sm:text-base"
+                href="getInvolved.html"
+                >Get Involved</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-[#322e25]/70 dark:text-[#fef6e7]/70 hover:underline decoration-[#fe7e4f] decoration-2 underline-offset-4 text-sm sm:text-base"
+                href="contact.html"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-[#a03a0f] font-bold mb-4 sm:mb-6 font-headline">
+            Contact
+          </h4>
+          <ul
+            class="space-y-3 sm:space-y-4 text-[#322e25]/70 dark:text-[#fef6e7]/70"
+          >
+            <li class="flex gap-3 items-start">
+              <span
+                class="material-symbols-outlined text-primary text-xl flex-shrink-0"
+                >location_on</span
+              >
+              <span class="text-sm sm:text-base"
+                >Accra, Ghana<br />East Legon</span
+              >
+            </li>
+            <li class="flex gap-3 items-start">
+              <span
+                class="material-symbols-outlined text-primary text-xl flex-shrink-0"
+                >mail</span
+              >
+              <span class="text-sm sm:text-base break-all"
+                >hello@beautifullifefoundation.org</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="px-6 sm:px-12 py-6 sm:py-8 border-t border-[#a03a0f]/10 max-w-7xl mx-auto text-center text-xs sm:text-sm text-[#322e25]/50"
+      >
+        © 2024 Beautiful Life Foundation Ghana. All rights reserved.
+      </div>
+    </footer>
+
+    <script>
+      const btn = document.getElementById("menu-btn");
+      const menu = document.getElementById("mobile-menu");
+      const icon = document.getElementById("menu-icon");
+
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("open");
+        icon.textContent = menu.classList.contains("open") ? "close" : "menu";
+      });
+    </script>
+  </body>
+</html>

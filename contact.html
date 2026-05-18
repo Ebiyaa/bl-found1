@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Contact Us - Beautiful Life Foundation</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f8f0e0",
+              "on-primary-container": "#491300",
+              "secondary-fixed": "#ffc5a6",
+              background: "#fef6e7",
+              "on-error-container": "#570008",
+              "on-primary-fixed-variant": "#591800",
+              "surface-tint": "#a03a0f",
+              "on-secondary-fixed": "#592500",
+              "on-tertiary-fixed-variant": "#00703f",
+              "on-tertiary-fixed": "#00502b",
+              "primary-fixed-dim": "#ed7244",
+              "on-primary-fixed": "#020000",
+              secondary: "#964400",
+              "inverse-on-surface": "#a29c8f",
+              "secondary-container": "#ffc5a6",
+              "on-tertiary": "#ccffd8",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-container": "#773400",
+              "on-background": "#322e25",
+              "tertiary-dim": "#005c33",
+              "surface-dim": "#dcd4c0",
+              "outline-variant": "#b3ac9f",
+              "error-dim": "#9f0519",
+              "surface-container": "#f0e7d6",
+              "primary-dim": "#902e02",
+              "on-error": "#ffefee",
+              "on-surface-variant": "#605b50",
+              primary: "#a03a0f",
+              "inverse-primary": "#fe7e4f",
+              "on-tertiary-container": "#006438",
+              "tertiary-fixed-dim": "#94f0b3",
+              "secondary-dim": "#833a00",
+              "on-secondary-fixed-variant": "#853b00",
+              error: "#b31b25",
+              "primary-fixed": "#fe7e4f",
+              outline: "#7c766a",
+              "surface-container-high": "#eae2d0",
+              "primary-container": "#fe7e4f",
+              "on-surface": "#322e25",
+              "surface-bright": "#fef6e7",
+              "surface-variant": "#e5dcc9",
+              "tertiary-container": "#a2ffc0",
+              "inverse-surface": "#110e06",
+              "secondary-fixed-dim": "#ffb286",
+              "error-container": "#fb5151",
+              "on-primary": "#ffefeb",
+              tertiary: "#006a3b",
+              surface: "#fef6e7",
+              "tertiary-fixed": "#a2ffc0",
+              "on-secondary": "#fff0e9",
+              "surface-container-highest": "#e5dcc9",
+            },
+            borderRadius: {
+              DEFAULT: "1rem",
+              lg: "2rem",
+              xl: "3rem",
+              full: "9999px",
+            },
+            fontFamily: {
+              headline: ["Plus Jakarta Sans"],
+              body: ["Be Vietnam Pro"],
+              label: ["Plus Jakarta Sans"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+      .tonal-transition {
+        transition: background-color 0.3s ease;
+      }
+
+      /* Mobile menu */
+      #mobile-menu {
+        display: none;
+      }
+      #mobile-menu.open {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-background font-body antialiased">
+    <!-- TopAppBar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-[#fef6e7]/80 dark:bg-stone-950/80 backdrop-blur-md shadow-[0_20px_40px_rgba(50,46,37,0.06)]"
+    >
+      <nav
+        class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto"
+      >
+        <div class="flex items-center gap-3 group cursor-pointer">
+          <!-- <span
+            class="material-symbols-outlined text-[#a03a0f] text-3xl"
+            data-icon="heart_plus"
+            >heart_plus</span
+          >
+          <span
+            class="text-2xl font-bold tracking-tighter text-[#a03a0f] dark:text-[#fe7e4f] font-headline"
+            >Beautiful Life Foundation</span
+          > -->
+          <img class="w-40" src="public/bllogo2.png" alt="logo" srcset="" />
+        </div>
+        <div class="hidden md:flex items-center gap-10 font-headline">
+          <a
+            class="text-[#322e25] dark:text-[#fef6e7] opacity-80 hover:text-[#fe7e4f] transition-colors duration-300"
+            href="index.html"
+            >Home</a
+          >
+          <a
+            class="text-[#322e25] dark:text-[#fef6e7] opacity-80 hover:text-[#fe7e4f] transition-colors duration-300"
+            href="about.html"
+            >About Us</a
+          >
+          <a
+            class="text-[#322e25] dark:text-[#fef6e7] opacity-80 hover:text-[#fe7e4f] transition-colors duration-300"
+            href="programs.html"
+            >Our Programs</a
+          >
+          <a
+            class="text-[#322e25] dark:text-[#fef6e7] opacity-80 hover:text-[#fe7e4f] transition-colors duration-300"
+            href="getInvolved.html"
+            >Get Involved</a
+          >
+          <button
+            class="bg-primary text-on-primary px-8 py-2.5 rounded-full font-bold border-b-2 border-primary scale-95 active:scale-90 transition-transform"
+          >
+            Contact Us
+          </button>
+        </div>
+        <button
+          id="menu-btn"
+          class="md:hidden p-2 rounded-lg hover:bg-primary-container/20 transition-colors"
+          aria-label="Toggle menu"
+        >
+          <span
+            class="material-symbols-outlined text-primary text-2xl"
+            id="menu-icon"
+            >menu</span
+          >
+        </button>
+      </nav>
+      <!-- Mobile menu -->
+      <div
+        id="mobile-menu"
+        class="md:hidden flex-col gap-1 px-4 pb-4 bg-[#fef6e7]/95 backdrop-blur-md font-headline border-t border-primary/10"
+      >
+        <a
+          href="index.html"
+          class="block px-4 py-3 text-on-surface opacity-80 hover:bg-primary-container/10 rounded-lg transition-colors"
+          >Home</a
+        >
+        <a
+          href="about.html"
+          class="block px-4 py-3 text-on-surface opacity-80 hover:bg-primary-container/10 rounded-lg transition-colors"
+          >About Us</a
+        >
+        <a
+          href="programs.html"
+          class="block px-4 py-3 text-on-surface opacity-80 hover:bg-primary-container/10 rounded-lg transition-colors"
+          >Our Programs</a
+        >
+        <a
+          href="getInvolved.html"
+          class="block px-4 py-3 text-on-surface opacity-80 hover:bg-primary-container/10 rounded-lg transition-colors"
+          >Get Involved</a
+        >
+        <a
+          href="contact.html"
+          class="block mt-2 px-4 py-3 text-center bg-primary text-on-primary font-bold rounded-full hover:bg-primary-fixed-dim transition-colors"
+          >Contact Us</a
+        >
+      </div>
+    </header>
+
+    <main class="pt-32 pb-20">
+      <!-- Hero Section -->
+      <section class="max-w-7xl mx-auto px-8 mb-24">
+        <div
+          class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary to-primary-container p-12 md:p-20 text-on-primary"
+        >
+          <div class="relative z-10 max-w-2xl">
+            <h1
+              class="text-5xl md:text-7xl font-headline font-extrabold tracking-tight mb-6"
+            >
+              Let's start a conversation.
+            </h1>
+            <p
+              class="text-xl md:text-2xl opacity-90 leading-relaxed font-light"
+            >
+              Whether you're looking to partner, volunteer, or simply learn more
+              about our mission in Ghana, we're here to listen.
+            </p>
+          </div>
+          <div
+            class="absolute top-0 right-0 w-1/3 h-full hidden lg:block opacity-20 pointer-events-none"
+          >
+            <img
+              class="w-full h-full object-cover"
+              data-alt="abstract organic patterns resembling traditional Ghanaian Kente cloth textures in warm terracotta and gold tones"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMgw8GTz6zQZgtS54jzoulcfPh0aZQRdf1fGh6p8U-FjqYI2kaaEnlvt35RHOEkJVyW0XtJh4MtwmN-Wtk3pOUbY6-QTWuYUqYL9S6ddIwJBchCXw-hrk-fkcoL5B3whb4phWAmJ41NElRmav2fiqXYw_QnFmfCnb2Qd8_OnNGBtVsC1AzoducagB31SdRaBpfOW6JS0vwBZKmeXODRWS8gNX-sjxGDQkNQEU5ipQzRoCfubkkNZlG1zdHgSbYgGlLrtiRPP9x5B4"
+            />
+          </div>
+        </div>
+      </section>
+      <!-- Main Content Grid -->
+      <section class="max-w-7xl mx-auto px-8" id="contact">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+          <!-- Contact Details & Transparency -->
+          <div class="lg:col-span-5 space-y-16">
+            <div>
+              <h2
+                class="text-3xl font-headline font-bold text-primary mb-8 tracking-tight"
+              >
+                Direct Channels
+              </h2>
+              <div class="space-y-8">
+                <div class="flex items-start gap-6 group">
+                  <div
+                    class="bg-surface-container-high p-4 rounded-lg text-primary transition-transform group-hover:scale-110"
+                  >
+                    <span class="material-symbols-outlined text-3xl">mail</span>
+                  </div>
+                  <div>
+                    <p
+                      class="font-headline font-bold text-on-background text-lg"
+                    >
+                      Email Us
+                    </p>
+                    <p class="text-on-surface-variant text-body-md">
+                      hello@beautifullifegf.org
+                    </p>
+                    <p class="text-on-surface-variant text-body-md">
+                      partnerships@beautifullifegf.org
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-6 group">
+                  <div
+                    class="bg-surface-container-high p-4 rounded-lg text-primary transition-transform group-hover:scale-110"
+                  >
+                    <span class="material-symbols-outlined text-3xl">call</span>
+                  </div>
+                  <div>
+                    <p
+                      class="font-headline font-bold text-on-background text-lg"
+                    >
+                      Call Our Office
+                    </p>
+                    <p class="text-on-surface-variant text-body-md">
+                      +233 (0) 24 555 0123
+                    </p>
+                    <p class="text-on-surface-variant text-body-md">
+                      Mon - Fri, 8:00am - 5:00pm GMT
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-6 group">
+                  <div
+                    class="bg-surface-container-high p-4 rounded-lg text-primary transition-transform group-hover:scale-110"
+                  >
+                    <span class="material-symbols-outlined text-3xl"
+                      >location_on</span
+                    >
+                  </div>
+                  <div>
+                    <p
+                      class="font-headline font-bold text-on-background text-lg"
+                    >
+                      Visit Us
+                    </p>
+                    <p class="text-on-surface-variant text-body-md">
+                      No. 45 Independence Avenue
+                    </p>
+                    <p class="text-on-surface-variant text-body-md">
+                      Accra, Ghana
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Transparency & Accountability Section -->
+            <!-- <div
+              class="bg-surface-container-low rounded-lg p-10 border-l-4 border-primary"
+            >
+              <div class="flex items-center gap-3 mb-6">
+                <span
+                  class="material-symbols-outlined text-tertiary"
+                  style="font-variation-settings: 'FILL' 1"
+                  >verified_user</span
+                >
+                <h3 class="text-2xl font-headline font-bold text-on-background">
+                  Transparency &amp; Accountability
+                </h3>
+              </div>
+              <p class="text-on-surface-variant leading-relaxed mb-6">
+                At Beautiful Life Foundation, we maintain a 100% transparency
+                policy. Every cedi donated is tracked and audited annually. We
+                believe trust is built through openness.
+              </p>
+              <ul class="space-y-4">
+                <li class="flex items-center gap-3 text-on-surface font-medium">
+                  <span class="material-symbols-outlined text-primary text-sm"
+                    >check_circle</span
+                  >
+                  Annual Impact Reports
+                </li>
+                <li class="flex items-center gap-3 text-on-surface font-medium">
+                  <span class="material-symbols-outlined text-primary text-sm"
+                    >check_circle</span
+                  >
+                  Independent Financial Audits
+                </li>
+                <li class="flex items-center gap-3 text-on-surface font-medium">
+                  <span class="material-symbols-outlined text-primary text-sm"
+                    >check_circle</span
+                  >
+                  Direct Beneficiary Feedback Loops
+                </li>
+              </ul>
+              <button
+                class="mt-8 text-primary font-bold flex items-center gap-2 hover:gap-4 transition-all"
+              >
+                View 2023 Audit Report
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </button>
+            </div> -->
+          </div>
+          <!-- Contact Form -->
+          <div
+            class="lg:col-span-7 bg-surface-container-lowest rounded-lg p-8 md:p-12 shadow-[0_20px_40px_rgba(50,46,37,0.04)]"
+          >
+            <h2
+              class="text-3xl font-headline font-bold text-on-background mb-2"
+            >
+              Send a message
+            </h2>
+            <p class="text-on-surface-variant mb-10">
+              We usually respond within 24 business hours.
+            </p>
+            <form
+              id="contact-form"
+              class="space-y-8"
+              onsubmit="sendEmail(event)"
+            >
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="space-y-2">
+                  <label
+                    class="text-sm font-bold text-on-surface-variant uppercase tracking-wider px-2"
+                    >Your Name</label
+                  >
+                  <input
+                    class="w-full bg-surface-container-highest border-none rounded-md px-6 py-4 focus:ring-2 focus:ring-primary-container outline-none transition-all"
+                    placeholder="Kofi Mensah"
+                    type="text"
+                    name="from_name"
+                    required
+                  />
+                </div>
+                <div class="space-y-2">
+                  <label
+                    class="text-sm font-bold text-on-surface-variant uppercase tracking-wider px-2"
+                    >Email Address</label
+                  >
+                  <input
+                    class="w-full bg-surface-container-highest border-none rounded-md px-6 py-4 focus:ring-2 focus:ring-primary-container outline-none transition-all"
+                    placeholder="kofi@example.com"
+                    type="email"
+                    name="reply_to"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="space-y-2">
+                <label
+                  class="text-sm font-bold text-on-surface-variant uppercase tracking-wider px-2"
+                  >Subject</label
+                >
+                <select
+                  class="w-full bg-surface-container-highest border-none rounded-md px-6 py-4 focus:ring-2 focus:ring-primary-container outline-none transition-all"
+                >
+                  <option>General Inquiry</option>
+                  <option>Partnership Proposal</option>
+                  <option>Volunteer Opportunities</option>
+                  <option>Media &amp; Press</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="space-y-2">
+                <label
+                  class="text-sm font-bold text-on-surface-variant uppercase tracking-wider px-2"
+                  >Your Message</label
+                >
+                <textarea
+                  class="w-full bg-surface-container-highest border-none rounded-md px-6 py-4 focus:ring-2 focus:ring-primary-container outline-none transition-all resize-none"
+                  placeholder="How can we help you today?"
+                  rows="6"
+                  name="message"
+                  required
+                ></textarea>
+              </div>
+              <div class="flex items-center gap-4">
+                <input
+                  class="w-5 h-5 rounded text-primary border-outline-variant focus:ring-primary"
+                  id="consent"
+                  type="checkbox"
+                />
+                <label
+                  class="text-sm text-on-surface-variant leading-tight"
+                  for="consent"
+                >
+                  I agree to the
+                  <a class="text-primary hover:underline" href="#"
+                    >Privacy Policy</a
+                  >
+                  and consent to having this information stored.
+                </label>
+              </div>
+              <button
+                class="w-full md:w-auto bg-primary text-on-primary px-12 py-5 rounded-xl font-headline font-bold text-lg hover:bg-primary-dim transition-all flex items-center justify-center gap-3"
+                type="submit"
+              >
+                Send Message
+                <span class="material-symbols-outlined">send</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+      <!-- Asymmetric Map Section -->
+      <!-- <section class="mt-32 max-w-7xl mx-auto px-8">
+        <div
+          class="grid grid-cols-1 md:grid-cols-12 items-center gap-0 overflow-hidden rounded-lg bg-surface-container-low"
+        >
+          <div class="md:col-span-8 h-[500px]">
+            <img
+              class="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 transition-all duration-700"
+              data-alt="stylized map showing Ghana with warm terracotta and cream colors, highlighting the capital Accra with a gold pin"
+              data-location="Accra"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIq4JtYxKFIUFVEkZzPg9wvr9YqPgKzwBUihCLCq5sPVmi2LV--AIdtJ9aMd0VM_74qJopL5eJx6QwBtjGUGVSVeYh_1YKahiJSfEBVgHz3065rp_iJbxqmh0zkByTDc-rIb2kabW2rFEypSv1_PrCyoQjBgHj--ZqGq8N8TDmJRpVMhN86Penkr933ruOcAGFNgic4pJWFX9J0o-mTY0aXIJEsBr2UEObd4FEE6Io-vbjN0hElSwKLkBTI99p3Tkgzn6K7EYFJf8"
+            />
+          </div>
+          <div class="md:col-span-4 p-12 space-y-6">
+            <h3 class="text-3xl font-headline font-bold text-primary">
+              Find Us in Accra
+            </h3>
+            <p class="text-on-surface-variant leading-relaxed">
+              Our headquarters is located in the heart of the capital, open to
+              visitors and partners alike. Come share a drink and a story with
+              us.
+            </p>
+            <div class="space-y-4">
+              <div class="flex gap-4">
+                <span class="material-symbols-outlined text-primary"
+                  >directions</span
+                >
+                <a
+                  class="font-bold underline decoration-primary underline-offset-4"
+                  href="#"
+                  >Get Directions</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+    </main>
+    <!-- Footer -->
+    <footer
+      class="w-full rounded-t-[2rem] sm:rounded-t-[3rem] mt-10 sm:mt-20 bg-[#f0e7d6] dark:bg-stone-900 font-body leading-relaxed"
+    >
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 px-6 sm:px-12 py-10 sm:py-16 max-w-7xl mx-auto"
+      >
+        <div class="sm:col-span-2">
+          <div class="flex items-center gap-3 mb-4 sm:mb-6">
+            <span class="material-symbols-outlined text-[#a03a0f] text-3xl"
+              >heart_plus</span
+            >
+            <span
+              class="text-lg sm:text-xl font-bold text-[#a03a0f] font-headline"
+              >Beautiful Life Foundation</span
+            >
+          </div>
+          <p
+            class="text-[#322e25]/70 dark:text-[#fef6e7]/70 max-w-sm mb-6 sm:mb-8 text-sm sm:text-base"
+          >
+            Registered NGO in Ghana dedicated to supporting children with
+            special needs and their caregivers through holistic care and
+            economic empowerment.
+          </p>
+          <div class="flex gap-4">
+            <a
+              class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#a03a0f]/10 flex items-center justify-center text-[#a03a0f] hover:bg-[#a03a0f] hover:text-white transition-all"
+              href="#"
+            >
+              <span class="material-symbols-outlined text-xl"
+                >social_leaderboard</span
+              >
+            </a>
+            <a
+              class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#a03a0f]/10 flex items-center justify-center text-[#a03a0f] hover:bg-[#a03a0f] hover:text-white transition-all"
+              href="#"
+            >
+              <span class="material-symbols-outlined text-xl">share</span>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-[#a03a0f] font-bold mb-4 sm:mb-6 font-headline">
+            Quick Links
+          </h4>
+          <ul class="space-y-3 sm:space-y-4">
+            <li>
+              <a
+                class="text-[#322e25]/70 dark:text-[#fef6e7]/70 hover:underline decoration-[#fe7e4f] decoration-2 underline-offset-4 text-sm sm:text-base"
+                href="programs.html"
+                >Programs</a
+              >
+            </li>
+            <!-- <li><a class="text-[#322e25]/70 dark:text-[#fef6e7]/70 hover:underline decoration-[#fe7e4f] decoration-2 underline-offset-4 text-sm sm:text-base" href="#">Impact Stories</a></li> -->
+            <li>
+              <a
+                class="text-[#322e25]/70 dark:text-[#fef6e7]/70 hover:underline decoration-[#fe7e4f] decoration-2 underline-offset-4 text-sm sm:text-base"
+                href="getInvolved.html"
+                >Get Involved</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-[#322e25]/70 dark:text-[#fef6e7]/70 hover:underline decoration-[#fe7e4f] decoration-2 underline-offset-4 text-sm sm:text-base"
+                href="contact.html"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-[#a03a0f] font-bold mb-4 sm:mb-6 font-headline">
+            Contact
+          </h4>
+          <ul
+            class="space-y-3 sm:space-y-4 text-[#322e25]/70 dark:text-[#fef6e7]/70"
+          >
+            <li class="flex gap-3 items-start">
+              <span
+                class="material-symbols-outlined text-primary text-xl flex-shrink-0"
+                >location_on</span
+              >
+              <span class="text-sm sm:text-base"
+                >Accra, Ghana<br />East Legon</span
+              >
+            </li>
+            <li class="flex gap-3 items-start">
+              <span
+                class="material-symbols-outlined text-primary text-xl flex-shrink-0"
+                >mail</span
+              >
+              <span class="text-sm sm:text-base break-all"
+                >hello@beautifullifefoundation.org</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="px-6 sm:px-12 py-6 sm:py-8 border-t border-[#a03a0f]/10 max-w-7xl mx-auto text-center text-xs sm:text-sm text-[#322e25]/50"
+      >
+        © 2024 Beautiful Life Foundation Ghana. All rights reserved.
+      </div>
+    </footer>
+
+    <script>
+      // EmailJS - Initialize with your public key
+      // Sign up at emailjs.com, create a service (Gmail), template, and replace these values
+      emailjs.init("x1bpzSjwjSeVW09Ko"); // Replace with your EmailJS public key
+
+      function sendEmail(e) {
+        e.preventDefault();
+        const btn = document.querySelector(
+          '#contact-form button[type="submit"]'
+        );
+        const originalHTML = btn.innerHTML;
+        btn.innerHTML =
+          '<span class="material-symbols-outlined animate-spin">autorenew</span> Sending...';
+        btn.disabled = true;
+
+        emailjs
+          .sendForm(
+            "service_0w7h1nt", // Replace with your EmailJS service ID (e.g. "service_abc123")
+            "template_f7b9ype", // Replace with your EmailJS template ID (e.g. "template_xyz")
+            "#contact-form"
+          )
+          .then(
+            () => {
+              btn.innerHTML =
+                '<span class="material-symbols-outlined">check_circle</span> Submitted';
+              btn.classList.remove("bg-primary");
+              btn.classList.add("bg-tertiary");
+              document.getElementById("contact-form").reset();
+            },
+            (error) => {
+              btn.innerHTML =
+                '<span class="material-symbols-outlined">error</span> Failed – Try Again';
+              btn.classList.remove("bg-primary");
+              btn.classList.add("bg-error");
+              btn.disabled = false;
+              console.error("EmailJS error:", error);
+            }
+          );
+      }
+    </script>
+    <script>
+      const btn = document.getElementById("menu-btn");
+      const menu = document.getElementById("mobile-menu");
+      const icon = document.getElementById("menu-icon");
+      if (btn) {
+        btn.addEventListener("click", () => {
+          menu.classList.toggle("open");
+          icon.textContent = menu.classList.contains("open") ? "close" : "menu";
+        });
+      }
+    </script>
+  </body>
+</html>
